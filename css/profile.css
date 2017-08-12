@@ -1,0 +1,22 @@
+@charset "utf-8";
+.content{
+	background: url('../images/mb_back_companyIntro.png') no-repeat;
+}
+h2{
+	margin-top: 50px;
+	font-size: 14px;
+	margin-left: 180px;
+	padding-left: 20px;
+	background: url('../images/mb_ico_company.png') no-repeat;
+}
+.bt{
+	margin-top: 150px;
+}
+p{
+	margin-left: 180px;
+}
+p,dl{
+	font-size: 14px;
+	line-height: 30px;
+	margin-top: 10px;
+}

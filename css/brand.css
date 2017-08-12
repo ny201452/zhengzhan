@@ -1,0 +1,116 @@
+@charset "utf-8";
+body{
+	background: #fff;
+}
+#timers{
+	text-align: center;
+	margin: 50px;
+	font-size: 26px;
+}
+#imgs{
+	width: 1200px;
+	height: 600px;
+	margin: 50px auto;
+	position: relative;
+	overflow: hidden;
+}
+#imgs ul{
+	width: 5000px;
+	position: absolute;
+	top: 0;
+}
+#imgs li{
+	width: 1200px;
+	float: left;
+}
+#imgs li img{
+	width: 100%;
+}
+ #imgs a{
+	position: absolute;
+	top: 70px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #fff;
+	background: #000;
+	text-align: center;
+	/* width: 30px; */
+	/* height: 20px; */
+	line-height: 20px;
+	text-decoration: none;
+	opacity: 0;
+}
+#imgs:hover a{
+	opacity: .5;
+}
+#prev,#next{
+	padding: 20px;
+	margin-top: 170px;
+	margin-left: -20px;
+}
+#prev{
+	left: 5px;
+}
+#next{
+	right: 5px;
+} 
+#imgs #prev:hover,#imgs #next:hover{
+	opacity: .8;
+}
+#btns{
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	text-align: center;
+}
+#btns span {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border: 1px solid #fff;
+	background: #AAA;
+	border-radius: 50%;
+	margin: 0 2px;
+	cursor: pointer;
+}
+#btns .on {
+	background: orangered;
+}
+#la{
+	margin-left: 80px;
+	width: 1200px;
+}
+hr{
+	margin-bottom: 20px;
+	width: 1200px;
+}
+#la li{
+	padding-left: 200px;
+	height: 150px;
+	color: #000;
+	float: left;
+	width: 400px;
+	font-size: 14px;
+}
+#la li a{
+	color: #000;
+	font-size: 14px;
+}
+h2,p,a{
+	font-size: 16px;
+	font-weight: normal;
+}
+p,a{
+	text-indent: 2em;
+}
+i{
+	background: url('../images/icon.png') no-repeat;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin-right: 5px;
+	margin-top: -10px;
+}
+i{
+	background-position: -17px -16px;
+}

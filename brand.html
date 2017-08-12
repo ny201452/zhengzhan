@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>brand</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/brand.css">
+</head>
+<body>
+<p id="timers"></p><hr>
+<div id="tabs">
+  <section>
+    <div id="imgs">
+      <ul style="left:-1200px;">
+        <li><img src="images/tu1.jpg" alt="img1" width="1200" height="600" ></li>
+        <li><img src="images/tu2.jpg" alt="img2" width="1200" height="600" ></li>
+        <li><img src="images/tu3.jpg" alt="img3" width="1200" height="600" ></li>
+        <li><img src="images/tu4.jpg" alt="img4" width="1200" height="600" ></li>
+      </ul>
+      <a href="#" id="prev">&lt;</a>
+      <a href="#" id="next">&gt;</a>
+      <div id="btns">
+        <span index="0" class="on"></span>
+        <span index="1"></span>
+        <span index="2"></span>
+        <span index="3"></span>
+      </div>
+    </div>
+  </section>
+</div>
+<ul id="la">
+<hr>
+  <li>
+    <h2><i></i>服务热线</h2>
+    <p>400-800-0709</p>
+    <p>（周一至周日每日9:00-18:00）</p>
+  </li>
+  <li>
+    <h2><i></i>官方微博</h2>
+    <a href="">@Metersbonwe</a>
+  </li>
+  <li>
+    <h2><i></i>电子邮箱</h2>
+    <p>800@metersbonwe.com</p>
+  </li>
+  <li>
+    <h2><i></i>Instagram</h2>
+    <a href="">@metersbonweofficial</a>
+  </li>
+  <li>
+    <h2><i></i>官方微信</h2>
+    <a href="">美特斯邦威</a>
+  </li>
+  <li>
+    <h2><i></i>Facebook</h2>
+    <a href="">www.facebook.com/Metersbonwe</a>
+  </li>
+  <li>
+    <h2><i></i>公司地址</h2>
+    <p>上海市浦东新区康桥东路700号</p>
+  </li>
+  <li>
+    <h2><i></i>nice</h2>
+    <a href="">@Metersbonwe官方</a>
+  </li>
+</ul>
+<script>
+  function check(n) {
+    if(n<10) {
+      n='0'+n;
+    }
+      return n;
+  }
+  var timers = document.getElementById('timers');
+  function getT() {
+    var d = new Date();
+    var Y = d.getFullYear();
+    var M = d.getMonth()+1;
+    var D = d.getDate();
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+    var w = d.getDay();
+    var S = ['日','一','二','三','四','五','六'];
+    timers.innerHTML = Y+'年'+check(M)+'月'+check(D)+'日'+'星期'+S[w]+' '+check(h)+':'+check(m)+':'+check(s);
+  }
+   getT();
+   setInterval(getT,1000);  
+
+   var big = document.getElementById('imgs'); // 容器
+  var ulno = big.getElementsByTagName('ul')[0]; // 列表
+  var imgs = ulno.getElementsByTagName('img'); // 所有图片
+  var prev = document.getElementById('prev'); // 左箭头
+  var next = document.getElementById('next'); // 右箭头
+  var btn = document.getElementById('btns'); // 按钮容器
+  var bbtns = document.getElementsByTagName('span');
+  var btnLen = bbtns.length; 
+  var offset = -imgs[0].width; 
+  var imgNum = imgs.length; 
+  var interval = 1000; 
+  var index = 0; 
+  ulno.style.left = offset*index+'px'; 
+
+  function move() {
+    if(index>imgNum-1) {
+      index=0;
+    }
+    if(index<0) {
+      index=imgNum-1; 
+    }
+    console.log(offset)
+    ulno.style.left = offset*index+'px';
+
+  }
+  function showBtn() {
+    for (var j=0; j<btnLen; j++) {
+      if (bbtns[j].className=='on') {
+        bbtns[j].removeAttribute('class');
+      }
+    }
+    bbtns[index].className='on'; 
+  }
+  
+  prev.onclick = function() {
+    index--; // 显示上一幅图
+    move(); //切换图片
+    showBtn(); //切换按钮
+  }
+  next.onclick = function() {
+    index++; // 显示下一幅图
+    move();//切换图片
+    showBtn();//切换按钮
+  }
+  var timer = setInterval(next.onclick,interval); // 设置自动轮播
+  big.onmouseover = function () {
+    clearInterval(timer); // 停止轮播
+  }
+  big.onmouseout = function () {
+    timer = setInterval(next.onclick,interval);// 设置自动轮播
+  }
+  for (var i=0;i<btnLen;i++) {
+    bbtns[i].onclick = function () {
+      if (this.className=='on') { // 如果点击的按钮就是激活的按钮（当前图片对应的按钮），则不需要进行任何操作
+        return;
+      }
+      var Index = this.getAttribute('index'); // 获取到点击的按钮的index属性值
+      index = Index; // 把当前要显示的图片设置为点击的按钮的序号(index)对应的图片
+      move(); //切换图片
+      showBtn(); //切换按钮
+    }
+  }
+  </script>
+</body>
+</html>
